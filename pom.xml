@@ -198,7 +198,7 @@
         <equinox.osgi.services.version>3.4.0.v20140312-2051</equinox.osgi.services.version>
 
 
-        <slf4j.version>1.7.5</slf4j.version>
+        <slf4j.version>1.7.25</slf4j.version>
         <slf4j.logging.package.import.version.range>[1.7.1, 2.0.0)</slf4j.logging.package.import.version.range>
         <!--TODO: Check why we need to depend on SNAPSHOT -->
 
