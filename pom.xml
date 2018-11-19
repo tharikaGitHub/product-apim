@@ -186,7 +186,7 @@
 	<product.apim.version>3.0.0-SNAPSHOT</product.apim.version>
         <!-- Maven plugins -->
         <maven.checkstyleplugin.version>2.16</maven.checkstyleplugin.version>
-        <maven.findbugsplugin.version>3.0.3</maven.findbugsplugin.version>
+        <maven.findbugsplugin.version>3.0.5</maven.findbugsplugin.version>
 
         <!-- Dependencies -->
         <carbon.kernel.version>5.2.0-m3</carbon.kernel.version>
