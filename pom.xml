@@ -217,7 +217,7 @@
         <antlr4.runtime.version>4.5.1.wso2v1</antlr4.runtime.version>
         <plugin.version.antlr>4.5.1</plugin.version.antlr>
 
-        <carbon.datasources.version>1.1.0</carbon.datasources.version>
+        <carbon.datasources.version>1.1.7</carbon.datasources.version>
         <carbon.jndi.version>1.0.2</carbon.jndi.version>
         <carbon.metrics.version>2.0.1</carbon.metrics.version>
         <wso2.msf4j.version>2.3.0-m1</wso2.msf4j.version>
