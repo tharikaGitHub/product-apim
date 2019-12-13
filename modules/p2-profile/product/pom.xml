@@ -618,6 +618,14 @@
                                 <featureArtifactDef>
                                     org.wso2.carbon.commons:org.wso2.carbon.logging.updater.feature:${carbon.commons.version}
                                 </featureArtifactDef>
+                                <!-- Authentication portal feature -->
+                                <featureArtifactDef>
+                                    org.wso2.identity.apps:org.wso2.identity.apps.authentication.portal.server.feature:${identity.apps.version}
+                                </featureArtifactDef>
+                                <!-- Recovery portal feature -->
+                                <featureArtifactDef>
+                                    org.wso2.identity.apps:org.wso2.identity.apps.recovery.portal.server.feature:${identity.apps.version}
+                                </featureArtifactDef>
                             </featureArtifacts>
                         </configuration>
                     </execution>
@@ -1340,6 +1348,15 @@
                                 <feature>
                                     <id>org.wso2.carbon.apimgt.tracing.feature.group</id>
                                     <version>${carbon.apimgt.version}</version>
+                                </feature>
+                                <!-- Identity app features -->
+                                <feature>
+                                    <id>org.wso2.identity.apps.authentication.portal.server.feature.group</id>
+                                    <version>${identity.apps.version}</version>
+                                </feature>
+                                <feature>
+                                    <id>org.wso2.identity.apps.recovery.portal.server.feature.group</id>
+                                    <version>${identity.apps.version}</version>
                                 </feature>
                             </features>
                         </configuration>
@@ -2247,6 +2264,15 @@
                                     <id>org.wso2.carbon.identity.context.rewrite.server.feature.group</id>
                                     <version>${carbon.identity.auth.version}</version>
                                 </feature>
+                                <!-- Identity app features -->
+                                <feature>
+                                    <id>org.wso2.identity.apps.authentication.portal.server.feature.group</id>
+                                    <version>${identity.apps.version}</version>
+                                </feature>
+                                <feature>
+                                    <id>org.wso2.identity.apps.recovery.portal.server.feature.group</id>
+                                    <version>${identity.apps.version}</version>
+                                </feature>
                             </features>
                         </configuration>
                     </execution>
@@ -2729,6 +2755,15 @@
                                     <id>org.wso2.carbon.identity.context.rewrite.server.feature.group</id>
                                     <version>${carbon.identity.auth.version}</version>
                                 </feature>
+                                <!-- Identity app features -->
+                                <feature>
+                                    <id>org.wso2.identity.apps.authentication.portal.server.feature.group</id>
+                                    <version>${identity.apps.version}</version>
+                                </feature>
+                                <feature>
+                                    <id>org.wso2.identity.apps.recovery.portal.server.feature.group</id>
+                                    <version>${identity.apps.version}</version>
+                                </feature>
                             </features>
                         </configuration>
                     </execution>
@@ -3131,6 +3166,15 @@
                                 <feature>
                                     <id>org.wso2.carbon.event.output.adapter.server.feature.group</id>
                                     <version>${carbon.analytics.common.version}</version>
+                                </feature>
+                                <!-- Identity app features -->
+                                <feature>
+                                    <id>org.wso2.identity.apps.authentication.portal.server.feature.group</id>
+                                    <version>${identity.apps.version}</version>
+                                </feature>
+                                <feature>
+                                    <id>org.wso2.identity.apps.recovery.portal.server.feature.group</id>
+                                    <version>${identity.apps.version}</version>
                                 </feature>
                             </features>
                         </configuration>
