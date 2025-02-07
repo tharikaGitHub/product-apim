@@ -32,7 +32,6 @@
 
 # OS specific support.  $var _must_ be set to either true or false.
 #ulimit -n 100000
-
 cygwin=false;
 darwin=false;
 os400=false;
@@ -203,7 +202,7 @@ elif [ "$CMD" = "start" ]; then
   fi
   export CARBON_HOME="$CARBON_HOME"
 # using nohup sh to avoid erros in solaris OS.TODO
-  nohup sh "$CARBON_HOME"/bin/api-cp.sh $args > /dev/null 2>&1 &
+  nohup sh "$CARBON_HOME"/bin/key-manager.sh $args > /dev/null 2>&1 &
   exit 0
 elif [ "$CMD" = "stop" ]; then
   export CARBON_HOME="$CARBON_HOME"
@@ -222,7 +221,7 @@ elif [ "$CMD" = "restart" ]; then
   done
 
 # using nohup sh to avoid erros in solaris OS.TODO
-  nohup sh "$CARBON_HOME"/bin/api-cp.sh $args > /dev/null 2>&1 &
+  nohup sh "$CARBON_HOME"/bin/key-manager.sh $args > /dev/null 2>&1 &
   exit 0
 elif [ "$CMD" = "test" ]; then
     JAVACMD="exec "$JAVACMD""
@@ -256,28 +255,16 @@ fi
 for f in "$CARBON_HOME"/bin/*.jar
 do
     if [ "$f" != "$CARBON_HOME/bin/*.jar" ];then
-        if [ -n "$CARBON_CLASSPATH" ]; then
-            CARBON_CLASSPATH="$CARBON_CLASSPATH:$f"
-        else
-            CARBON_CLASSPATH="$f"
-        fi
+        CARBON_CLASSPATH="$CARBON_CLASSPATH":$f
     fi
 done
 for t in "$CARBON_HOME"/lib/*.jar
 do
-    if [ -n "$CARBON_CLASSPATH" ]; then
-        CARBON_CLASSPATH="$CARBON_CLASSPATH:$t"
-    else
-        CARBON_CLASSPATH="$t"
-    fi
+    CARBON_CLASSPATH="$CARBON_CLASSPATH":$t
 done
 for t in "$CARBON_HOME"/lib/endorsed/*.jar
 do
-    if [ -n "$CARBON_CLASSPATH" ]; then
-        CARBON_CLASSPATH="$CARBON_CLASSPATH:$t"
-    else
-        CARBON_CLASSPATH="$t"
-    fi
+    CARBON_CLASSPATH="$CARBON_CLASSPATH":$t
 done
 
 
