@@ -20,18 +20,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <parent>
-        <groupId>org.wso2.am</groupId>
-        <artifactId>am-distribution-parent</artifactId>
+        <groupId>org.wso2.am.tm</groupId>
+        <artifactId>am-tm-distribution-parent</artifactId>
         <version>4.5.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>wso2am</artifactId>
+    <artifactId>wso2am-tm</artifactId>
     <packaging>pom</packaging>
-    <name>WSO2 API Manager - Distribution </name>
+    <name>WSO2 API Manager Traffic Manager - Distribution </name>
     <url>http://www.wso2.org/projects/am/java</url>
-    <description>WSO2 API Manager Distribution</description>
+    <description>WSO2 API Manager Traffic Manager Distribution</description>
 
     <dependencies>
         <dependency>
@@ -109,101 +109,6 @@
                         </configuration>
                     </execution>
                     <execution>
-                        <id>unpack-rest-publisher</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>unpack</goal>
-                        </goals>
-                        <configuration>
-                            <artifactItems>
-                                <artifactItem>
-                                    <groupId>org.wso2.carbon.apimgt</groupId>
-                                    <artifactId>org.wso2.carbon.apimgt.rest.api.publisher.feature</artifactId>
-                                    <version>${carbon.apimgt.version}</version>
-                                    <type>zip</type>
-                                    <overWrite>true</overWrite>
-                                    <outputDirectory>target</outputDirectory>
-                                </artifactItem>
-                            </artifactItems>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>unpack-rest-store</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>unpack</goal>
-                        </goals>
-                        <configuration>
-                            <artifactItems>
-                                <artifactItem>
-                                    <groupId>org.wso2.carbon.apimgt</groupId>
-                                    <artifactId>org.wso2.carbon.apimgt.rest.api.store.feature</artifactId>
-                                    <version>${carbon.apimgt.version}</version>
-                                    <type>zip</type>
-                                    <overWrite>true</overWrite>
-                                    <outputDirectory>target</outputDirectory>
-                                </artifactItem>
-                            </artifactItems>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>unpack-rest-gateway</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>unpack</goal>
-                        </goals>
-                        <configuration>
-                            <artifactItems>
-                                <artifactItem>
-                                    <groupId>org.wso2.carbon.apimgt</groupId>
-                                    <artifactId>org.wso2.carbon.apimgt.rest.api.gateway.feature</artifactId>
-                                    <version>${carbon.apimgt.version}</version>
-                                    <type>zip</type>
-                                    <overWrite>true</overWrite>
-                                    <outputDirectory>target</outputDirectory>
-                                </artifactItem>
-                            </artifactItems>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>unpack-rest-devops</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>unpack</goal>
-                        </goals>
-                        <configuration>
-                            <artifactItems>
-                                <artifactItem>
-                                    <groupId>org.wso2.carbon.apimgt</groupId>
-                                    <artifactId>org.wso2.carbon.apimgt.rest.api.devops.feature</artifactId>
-                                    <version>${carbon.apimgt.version}</version>
-                                    <type>zip</type>
-                                    <overWrite>true</overWrite>
-                                    <outputDirectory>target</outputDirectory>
-                                </artifactItem>
-                            </artifactItems>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>unpack-rest-admin</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>unpack</goal>
-                        </goals>
-                        <configuration>
-                            <artifactItems>
-                                <artifactItem>
-                                    <groupId>org.wso2.carbon.apimgt</groupId>
-                                    <artifactId>org.wso2.carbon.apimgt.rest.api.admin.feature</artifactId>
-                                    <version>${carbon.apimgt.version}</version>
-                                    <type>zip</type>
-                                    <overWrite>true</overWrite>
-                                    <outputDirectory>target</outputDirectory>
-                                </artifactItem>
-                            </artifactItems>
-                        </configuration>
-                    </execution>
-                    <execution>
                         <id>copy-cxf-cors</id>
                         <phase>package</phase>
                         <goals>
@@ -267,16 +172,16 @@
                                 <mkdir dir="${tempdir}" />
                                 <unzip dest="${tempdir}">
                                     <fileset dir="target">
-                                        <include name="wso2am-${project.version}.zip" />
+                                        <include name="wso2am-tm-${project.version}.zip" />
                                     </fileset>
                                 </unzip>
                                 <replace file="target/wso2carbon-core-${carbon.kernel.version}/repository/conf/carbon.xml" token="&lt;/Security&gt;" value="${hideMenu}" />
                                 <replace file="target/wso2carbon-core-${carbon.kernel.version}/repository/resources/conf/templates/repository/conf/carbon.xml.j2" token="&lt;/Security&gt;" value="${hideMenuTemplate}" />
                                 <copy todir="target/wso2carbon-core-${carbon.kernel.version}/repository/components/" overwrite="false">
-                                    <fileset dir="${tempdir}/wso2am-${project.version}/repository/components/">
+                                    <fileset dir="${tempdir}/wso2am-tm-${project.version}/repository/components/">
                                     </fileset>
                                 </copy>
-                                <delete file="target/wso2am-${project.version}.zip" />
+                                <delete file="target/wso2am-tm-${project.version}.zip" />
                                 <delete dir="${tempdir}" />
                                 <mkdir dir="${tempdir}" />
                                 <unzip dest="${tempdir}">
@@ -284,96 +189,6 @@
                                         <include name="*.ui*.jar" />
                                     </fileset>
                                 </unzip>
-                                <move todir="${tempdir}/web/" includeemptydirs="false">
-                                    <fileset dir="${tempdir}/web/">
-                                        <exclude name="**/yui/**" />
-                                        <exclude name="**/ajax/**" />
-                                        <exclude name="**/editarea/**" />
-                                        <exclude name="**/codepress/**" />
-                                        <exclude name="**/WEB-INF/**" />
-                                        <exclude name="**/diffview/**" />
-                                        <include name="**/*.html" />
-                                    </fileset>
-                                    <mapper type="glob" from="*.html" to="*.xml" />
-                                </move>
-                                <delete dir="src/site/xdoc" />
-                                <mkdir dir="src/site/xdoc" />
-                                <copy todir="src/site/xdoc" overwrite="false" includeemptydirs="false">
-                                    <fileset dir="${tempdir}/web">
-                                        <exclude name="**/yui/**" />
-                                        <exclude name="**/ajax/**" />
-                                        <exclude name="**/WEB-INF/**" />
-                                        <exclude name="**/diffview/**" />
-                                        <exclude name="**/*.html" />
-                                        <exclude name="**/*.js" />
-                                        <exclude name="**/*.jsp" />
-                                        <exclude name="**/*.xsl" />
-                                        <exclude name="*.*" />
-                                    </fileset>
-                                </copy>
-                                <copy todir="src/site" overwrite="false" includeemptydirs="false">
-                                    <fileset dir="../../../docs">
-                                    </fileset>
-                                </copy>
-                                <copy todir="target/site/" overwrite="false" includeemptydirs="false">
-                                    <fileset dir="src/site/xdoc/">
-                                        <include name="**/images/*.*" />
-                                    </fileset>
-                                </copy>
-                                <zip destfile="target/site/publisher-api-docs.zip" basedir="target/features/" includes="org.wso2.carbon.apimgt.rest.api.publisher*/api-docs/" />
-                                <zip destfile="target/site/store-api-docs.zip" basedir="target/features/" includes="org.wso2.carbon.apimgt.rest.api.store*/api-docs/" />
-                                <zip destfile="target/site/admin-api-docs.zip" basedir="target/features/" includes="org.wso2.carbon.apimgt.rest.api.admin*/api-docs/" />
-                                <zip destfile="target/site/gateway-api-docs.zip" basedir="target/features/" includes="org.wso2.carbon.apimgt.rest.api.gateway.v1*/api-docs/" />
-                                <delete dir="features" />
-                                <delete dir="plugins" />
-                                <delete dir="${tempdir}" />
-                                <!-- Explode the authenticationendpoint.war -->
-                                <unzip dest="${basedir}/../../p2-profile/product/target/wso2carbon-core-${carbon.kernel.version}/repository/deployment/server/webapps/authenticationendpoint">
-                                    <fileset dir="${basedir}/../../p2-profile/product/target/wso2carbon-core-${carbon.kernel.version}/repository/deployment/server/webapps">
-                                        <include name="authenticationendpoint.war" />
-                                    </fileset>
-                                </unzip>
-                                <delete file="${basedir}/../../p2-profile/product/target/wso2carbon-core-${carbon.kernel.version}/repository/deployment/server/webapps/authenticationendpoint.war" />
-                                <!-- Explode the accountrecoveryendpoint.war -->
-                                <unzip dest="${basedir}/../../p2-profile/product/target/wso2carbon-core-${carbon.kernel.version}/repository/deployment/server/webapps/accountrecoveryendpoint">
-                                    <fileset dir="${basedir}/../../p2-profile/product/target/wso2carbon-core-${carbon.kernel.version}/repository/deployment/server/webapps">
-                                        <include name="accountrecoveryendpoint.war" />
-                                    </fileset>
-                                </unzip>
-                                <replace file="${basedir}/../../p2-profile/product/target/wso2carbon-core-${carbon.kernel.version}/repository/resources/conf/templates/repository/deployment/server/webapps/accountrecoveryendpoint/WEB-INF/web.xml.j2" token="&lt;param-value&gt;true&lt;/param-value&gt;" value="&lt;param-value&gt;false&lt;/param-value&gt;" />
-                                <delete file="${basedir}/../../p2-profile/product/target/wso2carbon-core-${carbon.kernel.version}/repository/deployment/server/webapps/accountrecoveryendpoint.war" />
-                            </tasks>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>extract-portals</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <configuration>
-                            <tasks>
-                                <!-- Explode the devportal.war -->
-                                <unzip dest="${basedir}/../../p2-profile/product/target/wso2carbon-core-${carbon.kernel.version}/repository/deployment/server/webapps/devportal">
-                                    <fileset dir="${basedir}/../../p2-profile/product/target/wso2carbon-core-${carbon.kernel.version}/repository/deployment/server/webapps">
-                                        <include name="devportal.war" />
-                                    </fileset>
-                                </unzip>
-                                <delete file="${basedir}/../../p2-profile/product/target/wso2carbon-core-${carbon.kernel.version}/repository/deployment/server/webapps/devportal.war" />
-                                <!-- Explode the publisher.war -->
-                                <unzip dest="${basedir}/../../p2-profile/product/target/wso2carbon-core-${carbon.kernel.version}/repository/deployment/server/webapps/publisher">
-                                    <fileset dir="${basedir}/../../p2-profile/product/target/wso2carbon-core-${carbon.kernel.version}/repository/deployment/server/webapps">
-                                        <include name="publisher.war" />
-                                    </fileset>
-                                </unzip>
-                                <delete file="${basedir}/../../p2-profile/product/target/wso2carbon-core-${carbon.kernel.version}/repository/deployment/server/webapps/publisher.war" />
-                                <!-- Explode the admin.war -->
-                                <unzip dest="${basedir}/../../p2-profile/product/target/wso2carbon-core-${carbon.kernel.version}/repository/deployment/server/webapps/admin">
-                                    <fileset dir="${basedir}/../../p2-profile/product/target/wso2carbon-core-${carbon.kernel.version}/repository/deployment/server/webapps">
-                                        <include name="admin.war" />
-                                    </fileset>
-                                </unzip>
-                                <delete file="${basedir}/../../p2-profile/product/target/wso2carbon-core-${carbon.kernel.version}/repository/deployment/server/webapps/admin.war" />
                             </tasks>
                         </configuration>
                     </execution>

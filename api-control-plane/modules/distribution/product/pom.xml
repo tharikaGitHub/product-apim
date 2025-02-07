@@ -20,18 +20,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <parent>
-        <groupId>org.wso2.am</groupId>
-        <artifactId>am-distribution-parent</artifactId>
+        <groupId>org.wso2.am.acp</groupId>
+        <artifactId>am-acp-distribution-parent</artifactId>
         <version>4.5.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>wso2am</artifactId>
+    <artifactId>wso2am-acp</artifactId>
     <packaging>pom</packaging>
-    <name>WSO2 API Manager - Distribution </name>
+    <name>WSO2 API Manager Control Plane - Distribution </name>
     <url>http://www.wso2.org/projects/am/java</url>
-    <description>WSO2 API Manager Distribution</description>
+    <description>WSO2 API Manager Control Plane Distribution</description>
 
     <dependencies>
         <dependency>
@@ -267,16 +267,16 @@
                                 <mkdir dir="${tempdir}" />
                                 <unzip dest="${tempdir}">
                                     <fileset dir="target">
-                                        <include name="wso2am-${project.version}.zip" />
+                                        <include name="wso2am-acp-${project.version}.zip" />
                                     </fileset>
                                 </unzip>
                                 <replace file="target/wso2carbon-core-${carbon.kernel.version}/repository/conf/carbon.xml" token="&lt;/Security&gt;" value="${hideMenu}" />
                                 <replace file="target/wso2carbon-core-${carbon.kernel.version}/repository/resources/conf/templates/repository/conf/carbon.xml.j2" token="&lt;/Security&gt;" value="${hideMenuTemplate}" />
                                 <copy todir="target/wso2carbon-core-${carbon.kernel.version}/repository/components/" overwrite="false">
-                                    <fileset dir="${tempdir}/wso2am-${project.version}/repository/components/">
+                                    <fileset dir="${tempdir}/wso2am-acp-${project.version}/repository/components/">
                                     </fileset>
                                 </copy>
-                                <delete file="target/wso2am-${project.version}.zip" />
+                                <delete file="target/wso2am-acp-${project.version}.zip" />
                                 <delete dir="${tempdir}" />
                                 <mkdir dir="${tempdir}" />
                                 <unzip dest="${tempdir}">
@@ -492,16 +492,16 @@
                         </goals>
                     </execution>
                     <execution>
-                    <id>modify-resource-authentication-identity</id>
-                    <phase>prepare-package</phase>
-                    <configuration>
-                        <tasks>
-                            <replace file="${basedir}/../../p2-profile/product/target/wso2carbon-core-${carbon.kernel.version}/repository/resources/conf/templates/repository/conf/identity/identity.xml.j2" token="&lt;ResourceAccessControl default-access=&quot;deny&quot;&gt;" value="&lt;ResourceAccessControl default-access=&quot;allow&quot;&gt;" />
-                        </tasks>
-                    </configuration>
-                    <goals>
-                        <goal>run</goal>
-                    </goals>
+                        <id>modify-resource-authentication-identity</id>
+                        <phase>prepare-package</phase>
+                        <configuration>
+                            <tasks>
+                                <replace file="${basedir}/../../p2-profile/product/target/wso2carbon-core-${carbon.kernel.version}/repository/resources/conf/templates/repository/conf/identity/identity.xml.j2" token="&lt;ResourceAccessControl default-access=&quot;deny&quot;&gt;" value="&lt;ResourceAccessControl default-access=&quot;allow&quot;&gt;" />
+                            </tasks>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
                     </execution>
                     <execution>
                         <id>modify-identity-j2</id>
@@ -554,6 +554,7 @@
                 <artifactId>maven-site-plugin</artifactId>
                 <version>3.3</version>
                 <configuration>
+
                     <reportPlugins>
                         <plugin>
                             <groupId>org.apache.maven.plugins</groupId>
@@ -654,7 +655,7 @@
                 <artifactId>replacer</artifactId>
                 <version>1.5.2</version>
                 <executions>
-            	    <!-- Replace Datasource, Scope mpl classes and OAuth callback class in identity.xml -->
+                    <!-- Replace Datasource, Scope mpl classes and OAuth callback class in identity.xml -->
                     <execution>
                         <id>replace-for-identity</id>
                         <phase>prepare-package</phase>
@@ -877,7 +878,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-deploy-plugin</artifactId>
                 <configuration>
-                       <skip>true</skip>
+                    <skip>true</skip>
                 </configuration>
             </plugin>
             <plugin>

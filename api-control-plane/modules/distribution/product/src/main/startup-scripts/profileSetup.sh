@@ -211,7 +211,7 @@ done
 
 #main
 case $1 in
-	-Dprofile=api-key-manager-node)
+	-Dprofile=key-manager)
 		timeStamp
 		echo "[${timestamp}] INFO - Starting to optimize API Manager for the Key Manager profile"
 		removeAxis2BlockingClientXMLFile
@@ -220,8 +220,7 @@ case $1 in
 		replaceTenantAxis2TemplateFile $pathToTenantAxis2KMXmlTemplate
 		removeWebSocketInboundEndpoint
 		removeSecureWebSocketInboundEndpoint
-		removeSynapseConfigs
-		replaceDeploymentConfiguration api-key-manager-node $passedSkipConfigOptimizationOption
+		replaceDeploymentConfiguration key-manager $passedSkipConfigOptimizationOption
 		# removing webbapps which are not required for this profile
 		for i in $(find $pathToWebapps -maxdepth 1 -mindepth 1 -not \( -name \
 		'authenticationendpoint' -o -name 'accountrecoveryendpoint' -o -name 'oauth2.war' \

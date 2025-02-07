@@ -20,11 +20,11 @@
 
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.wso2.am</groupId>
-    <artifactId>am-parent</artifactId>
+    <groupId>org.wso2.am.tm</groupId>
+    <artifactId>am-tm-parent</artifactId>
     <packaging>pom</packaging>
     <version>4.5.0-SNAPSHOT</version>
-    <name>WSO2 API Manager - Aggregator Module</name>
+    <name>WSO2 Traffic Manager - Aggregator Module</name>
     <url>https://wso2.com/products/api-manager</url>
     <description>WSO2 API Manager</description>
 
@@ -45,12 +45,10 @@
         <module>modules/styles</module>
         <module>modules/org.wso2.am.multitenancy.dashboard.ui</module>
         <module>modules/features</module>
-        <!--module>sample-scenarios</module-->
         <module>modules/p2-profile</module>
         <module>modules/oauth2-grant-types</module>
         <module>modules/local-authenticators</module>
         <module>modules/distribution</module>
-        <module>modules/integration</module>
     </modules>
 
     <scm>
