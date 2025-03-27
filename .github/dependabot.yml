@@ -1,0 +1,120 @@
+version: 2
+updates:
+- package-ecosystem: maven
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: org.eclipse.jetty:jetty-maven-plugin
+    versions:
+    - 9.4.36.v20210114
+    - 9.4.37.v20210219
+    - 9.4.38.v20210224
+    - 9.4.39.v20210325
+  - dependency-name: org.eclipse.jetty.websocket:websocket-client
+    versions:
+    - 9.4.36.v20210114
+    - 9.4.37.v20210219
+    - 9.4.38.v20210224
+    - 9.4.39.v20210325
+  - dependency-name: org.eclipse.jetty.websocket:websocket-server
+    versions:
+    - 9.4.36.v20210114
+    - 9.4.37.v20210219
+    - 9.4.38.v20210224
+    - 9.4.39.v20210325
+  - dependency-name: org.eclipse.jetty:jetty-servlet
+    versions:
+    - 9.4.36.v20210114
+    - 9.4.37.v20210219
+    - 9.4.38.v20210224
+    - 9.4.39.v20210325
+  - dependency-name: org.eclipse.jetty:jetty-server
+    versions:
+    - 9.4.36.v20210114
+    - 9.4.37.v20210219
+    - 9.4.38.v20210224
+    - 9.4.39.v20210325
+  - dependency-name: com.fasterxml.jackson.datatype:jackson-datatype-joda
+    versions:
+    - 2.12.1
+    - 2.12.2
+  - dependency-name: com.fasterxml.jackson.core:jackson-databind
+    versions:
+    - 2.12.1
+    - 2.12.2
+  - dependency-name: com.fasterxml.jackson.core:jackson-annotations
+    versions:
+    - 2.12.1
+    - 2.12.2
+  - dependency-name: com.fasterxml.jackson.core:jackson-core
+    versions:
+    - 2.12.1
+    - 2.12.2
+  - dependency-name: org.wso2.carbon.identity.inbound.auth.oauth2:org.wso2.carbon.identity.oauth
+    versions:
+    - 6.4.36
+  - dependency-name: org.wso2.carbon.identity.inbound.auth.oauth2:org.wso2.carbon.identity.oauth.stub
+    versions:
+    - 6.4.36
+  - dependency-name: org.springframework:spring-webmvc
+    versions:
+    - 5.2.7.RELEASE
+  - dependency-name: org.springframework:spring-web
+    versions:
+    - 5.2.7.RELEASE
+  - dependency-name: org.springframework:spring-context
+    versions:
+    - 5.2.7.RELEASE
+  - dependency-name: org.springframework:spring-core
+    versions:
+    - 5.2.7.RELEASE
+  - dependency-name: org.wso2.carbon.mediation:org.wso2.carbon.rest.api.stub
+    versions:
+    - 4.7.51
+  - dependency-name: org.wso2.carbon.mediation:org.wso2.carbon.proxyadmin.stub
+    versions:
+    - 4.7.51
+  - dependency-name: org.wso2.carbon.mediation:org.wso2.carbon.mediation.artifactuploader.stub
+    versions:
+    - 4.7.51
+  - dependency-name: org.wso2.carbon.mediation:org.wso2.carbon.message.processor.stub
+    versions:
+    - 4.7.51
+  - dependency-name: org.wso2.carbon.mediation:org.wso2.carbon.message.store.stub
+    versions:
+    - 4.7.51
+  - dependency-name: org.wso2.carbon.mediation:org.wso2.carbon.mediation.templates.stub
+    versions:
+    - 4.7.51
+  - dependency-name: org.wso2.carbon.mediation:org.wso2.carbon.task.stub
+    versions:
+    - 4.7.51
+  - dependency-name: org.wso2.carbon.mediation:org.wso2.carbon.sequences.stub
+    versions:
+    - 4.7.51
+  - dependency-name: org.wso2.carbon.mediation:org.wso2.carbon.priority.executors.stub
+    versions:
+    - 4.7.51
+  - dependency-name: org.wso2.carbon.mediation:org.wso2.carbon.mediation.configadmin.stub
+    versions:
+    - 4.7.51
+  - dependency-name: org.wso2.carbon.mediation:org.wso2.carbon.localentry.stub
+    versions:
+    - 4.7.51
+  - dependency-name: org.wso2.carbon.mediation:org.wso2.carbon.endpoint.stub
+    versions:
+    - 4.7.51
+  - dependency-name: org.wso2.carbon.analytics-common:org.wso2.carbon.databridge.receiver.thrift
+    versions:
+    - 6.1.45
+  - dependency-name: org.wso2.carbon.analytics-common:org.wso2.carbon.databridge.core
+    versions:
+    - 6.1.45
+  - dependency-name: org.wso2.carbon.analytics-common:org.wso2.carbon.databridge.commons.thrift
+    versions:
+    - 6.1.45
+  - dependency-name: com.google.guava:guava
+    versions:
+    - 28.1-jre
