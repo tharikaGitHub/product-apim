@@ -85,6 +85,9 @@
                                     org.wso2.carbon.commons:org.wso2.carbon.tenant.mgt.common.feature:${carbon.commons.version}
                                 </featureArtifactDef>
                                 <featureArtifactDef>
+                                    org.wso2.carbon.apimgt:org.wso2.carbon.apimgt.federated.gateway.feature:${carbon.apimgt.version}
+                                </featureArtifactDef>
+                                <featureArtifactDef>
                                     org.wso2.carbon:org.wso2.carbon.core.feature:${carbon.kernel.version}
                                 </featureArtifactDef>
                                 <featureArtifactDef>
@@ -878,6 +881,10 @@
                                 <feature>
                                     <id>org.wso2.carbon.identity.thrift.authentication.feature.group</id>
                                     <version>${carbon.identity.version}</version>
+                                </feature>
+                                <feature>
+                                    <id>org.wso2.carbon.apimgt.federated.gateway.feature.group</id>
+                                    <version>${carbon.apimgt.version}</version>
                                 </feature>
                                 <feature>
                                 <id>org.wso2.carbon.identity.event.server.feature.group</id>
